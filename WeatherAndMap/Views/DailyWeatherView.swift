@@ -53,8 +53,60 @@ struct DailyWeatherView: View {
                             Text("降水確率")
                             Text(forecastDay.day.dailyChanceOfRain, format:.number)
                             Text("%")
-                        }                        
+                        }
                         .font(.subheadline)//フォントを小見出しのスタイルに
+                        
+                       // 月の満ち欠け
+                        HStack {
+                            switch forecastDay.astro.moonPhase{
+                            case "New Moon":
+                                Image("New Moon")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .scaledToFit()
+                            case "Waxing Crescent":
+                                Image("Waxing Crescent")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .scaledToFit()
+                            case "First Quarter":
+                                Image("First Quarter")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .scaledToFit()
+                            case "Waxing Gibbous":
+                                Image("Waxing Gibbous")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .scaledToFit()
+                            case "Full Moon":
+                                Image("Full Moon")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .scaledToFit()
+                            case "Waning Gibbous":
+                                Image("Waning Gibbous")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .scaledToFit()
+                            case "Last Quarter":
+                                Image("Last Quarter")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .scaledToFit()
+                            case "Waning Crescent":
+                                Image("Waning Crescent")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .scaledToFit()
+                            default:
+                                Text("")
+                            }
+                                
+                        }
+                        
+
+                        
                     }
                     .padding()
                     .frame(width: ScreenInfo.width / 2,
@@ -111,6 +163,13 @@ struct DailyWeatherView: View {
                                 Text("〇〇")//数字が入る
                                 Text("%")
                             }
+                            
+                            // 月の満ち欠け
+                            HStack{
+                                Text("月の満ち欠け")
+                            }
+
+                            
                         }
                         .padding()
                         .frame(width: ScreenInfo.width / 2,
